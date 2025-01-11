@@ -38,6 +38,8 @@ class Quiz_Ui:
     def get_next_question(self):
         if self.quiz.still_has_questions() == False:
             self.question_board.itemconfig(self.question_text, text=f"Game over: Final score: {self.score}")
+            self.true_button.config(state="disabled")
+            self.false_canvas.config(state="disabled")
 
         q_text = self.quiz.next_question()
         self.question_board.itemconfig(self.question_text, text=q_text)
